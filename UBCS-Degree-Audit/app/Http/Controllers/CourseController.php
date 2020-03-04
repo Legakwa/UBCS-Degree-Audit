@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Program;
+use App\Course;
 use Illuminate\Http\Request;
 
-class ProgramController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        return view('programs.index');
+        return view('courses.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        return view('programs.create');
+        return view('courses.create');
     }
 
     /**
@@ -36,22 +36,26 @@ class ProgramController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'programCode' => 'required',
-            'programName' => 'required'
+            'courseCode' => 'required',
+            'courseName' => 'required',
+            'credits' => 'required',
+            'type' => 'required',
+            'program' => 'required'
         ]);
 
         Program::create($request->all());
 
-        return redirect()->route('programs.index')->with('success', 'Product Created Successfully!');
+        return redirect()->route('courses.index')->with('success', 'courses Created Successfully!');
     }
+
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Program  $program
+     * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function show(Program $program)
+    public function show(Course $course)
     {
         //
     }
@@ -59,10 +63,10 @@ class ProgramController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Program  $program
+     * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function edit(Program $program)
+    public function edit(Course $course)
     {
         //
     }
@@ -71,10 +75,10 @@ class ProgramController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Program  $program
+     * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Program $program)
+    public function update(Request $request, Course $course)
     {
         //
     }
@@ -82,10 +86,10 @@ class ProgramController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Program  $program
+     * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Program $program)
+    public function destroy(Course $course)
     {
         //
     }

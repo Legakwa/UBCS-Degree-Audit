@@ -24,3 +24,4 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 });
 
 Route::resource('programs','ProgramController');
+Route::resource('courses','CourseController');

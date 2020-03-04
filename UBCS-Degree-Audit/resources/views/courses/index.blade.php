@@ -1,10 +1,10 @@
-@extends('programs.layout')
+@extends('courses.layout')
     @section('content')
         <div class="row">
             <div class="col-lg-12">
                 <div class="pull-left">
-                    <h3>Program Structure</h3>
-                <a class=" btn btn-success" href="{{ route('programs.create') }}"> Create new program</a>
+                    <h3>Courses</h3>
+                <a class=" btn btn-success" href="{{ route('courses.create') }}"> Create new course</a>
                 </div>
             </div>
         </div>

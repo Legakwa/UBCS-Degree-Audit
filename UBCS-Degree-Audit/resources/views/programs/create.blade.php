@@ -9,8 +9,9 @@
             </div>
         </div>
 
-    <form action="{{ route('programs.index')}}" method="POST">
+    <form action="{{ route('programs.store')}}" method="POST">
         @csrf
+        @method("PUT")
         <div class="row">
             <div class="col-lg-12">
                 <div class="form-group">
