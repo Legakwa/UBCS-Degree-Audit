@@ -16,7 +16,9 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //protact our user information
+    //protect our user information
+
+
     public function _construct()
     {
         $this->middleware('auth');

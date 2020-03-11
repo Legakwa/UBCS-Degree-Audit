@@ -1,4 +1,5 @@
-@extends('programs.layout')
+@extends('layouts.app')
+
     @section('content')
         <div class="row">
             <div class="col-lg-12">
@@ -32,7 +33,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <button type="submit" class="btn btn-primary">Add</button>
+                <a class=" btn btn-success" href="{{ route('programs.store') }}">Add</a>
             </div>
         </div>
     </form>

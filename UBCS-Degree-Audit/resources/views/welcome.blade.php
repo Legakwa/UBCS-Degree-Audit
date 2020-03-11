@@ -85,10 +85,11 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Students Stats</a>
-                    <a href="https://laravel-news.com">Advisors</a>
-                    <a href="https://vapor.laravel.com">FAQ</a>
-                    <a href="https://github.com/laravel/laravel">About Us</a>
+                    <!-- to be fixed and add real links-->
+                    <a href=" {{ url('/home') }}">Students Stats</a>
+                    <a href=" {{ url('/home') }}">Advisors</a>
+                    <a href=" {{ url('/home') }}">FAQ</a>
+                    <a href=" {{ url('/home') }}">About Us</a>
                 </div>
             </div>
         </div>
