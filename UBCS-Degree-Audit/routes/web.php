@@ -23,5 +23,13 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
     Route::resource('/users', 'UsersController', ['except' => ['show','create','store']]);
 });
 
+Route::get('courses/form', 'CourseController@create')->name('courses.create');
+Route::post('courses', 'CourseController@store')->name('courses.store');
+
+//Download pdf
+Route::get('/downloadPDF/{id}','CourseController@downloadPDF');
+
+Route::get('courses/list', 'CourseController@index')->name('courses.index');
+
 Route::resource('programs','ProgramController');
 Route::resource('courses','CourseController');

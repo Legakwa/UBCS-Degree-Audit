@@ -18,7 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('course_code');
             $table->string('course_name');
             $table->string('credits');
-            $table->enum('course_type',['core','option','elective']);
+            //$table->enum('course_type',['core','option','elective']); //togo to student_courses
             $table->timestamps();
         });
     }

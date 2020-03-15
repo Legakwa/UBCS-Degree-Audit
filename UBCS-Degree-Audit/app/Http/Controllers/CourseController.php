@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Course;
+use PDF;
 
 class CourseController extends Controller
 {
@@ -13,7 +15,22 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+
+        return view('courses.list', compact('courses'));
+    }
+
+    /**
+     * Downloads a course pdf.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function downloadPDF($id) {
+        $courses = Course::find($id);
+        $pdf = PDF::loadView('courses.pdf', compact('courses'));
+        
+        return $pdf->download('course.pdf');
     }
 
     /**
@@ -23,7 +40,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return view('courses.form');
     }
 
     /**
@@ -34,7 +51,14 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'course_code' => 'required|max:255',
+            'course_name' => 'required|max:255',
+            'credits' => 'required|max:255',
+        ]);
+        Course::create($validatedData);
+   
+        return redirect('/courses')->with('success', 'Courses has been successfully saved');
     }
 
     /**
