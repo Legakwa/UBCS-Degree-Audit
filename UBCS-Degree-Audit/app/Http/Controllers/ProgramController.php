@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Program;
+use PDF;
+
 class ProgramController extends Controller
 {
     /**
@@ -13,7 +16,22 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        return view('programs/create');
+        $programs = Program::all();
+
+        return view('programs.list', compact('programs'));
+    }
+
+    /**
+     * Downloads a course pdf.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function downloadPDF($id) {
+        $programs = Program::find($id);
+        $pdf = PDF::loadView('programs.pdf', compact('programs'));
+        
+        return $pdf->download('programs.pdf');
     }
 
     /**
@@ -23,7 +41,7 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        //
+        return view('programs.form');
     }
 
     /**
@@ -34,7 +52,15 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'program_code' => 'required|max:255',
+            'program_name' => 'required|max:255',
+            'min_credits' => 'required|max:255',
+            'min_cgpa' => 'required|max:255',
+        ]);
+        Program::create($validatedData);
+   
+        return redirect('/programs')->with('success', 'Program has been successfully saved');
     }
 
     /**
