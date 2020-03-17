@@ -22,4 +22,7 @@
     @endforeach
   </tbody>
 </table>
+<a class="navbar-brand" href="{{ route('programs.create') }}">
+  <button type="submit" class="btn btn-primary">Back</button>
+</a>
 @endsection
