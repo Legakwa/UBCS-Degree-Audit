@@ -8,4 +8,9 @@ class Course extends Model
 {
     protected $fillable = ['course_code', 'course_name', 'credits'];
 
+    public function programs()
+    {
+        return $this->belongsToMany('App\Program');
+    }
+
 }
