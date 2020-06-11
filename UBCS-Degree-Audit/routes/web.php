@@ -42,3 +42,7 @@ Route::get('programs/list', 'ProgramController@index')->name('programs.index');
 
 Route::resource('programs','ProgramController');
 Route::resource('courses','CourseController');
+
+//course_program routes
+Route::get('course_programs', 'Course_programController@create')->name('course_programs.create');
+Route::post('course_programs', 'Course_programController@store')->name('course_programs.store');
